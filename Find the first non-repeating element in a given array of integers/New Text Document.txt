@@ -1,1 +1,40 @@
 add you code file to this folder
+
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+using namespace std;
+
+int findFirstNonRepeatingElement(const vector<int>& arr) {
+    unordered_map<int, int> elementCount;
+
+    for (int num : arr) {
+       
+        elementCount[num]++;
+    }
+
+    for (int num : arr) {
+       
+        if (elementCount[num] == 1) {
+            return num;
+        }
+    }
+
+    
+    return -1;
+}
+
+int main() {
+    vector<int> arr = {3, 5, 7, 3, 2, 7, 8, 5};
+
+    int firstNonRepeating = findFirstNonRepeatingElement(arr);
+
+    if (firstNonRepeating != -1) {
+        cout << "The first non-repeating element is: " << firstNonRepeating << endl;
+    } else {
+        cout << "No non-repeating element found in the array." << endl;
+    }
+
+    return 0;
+}
