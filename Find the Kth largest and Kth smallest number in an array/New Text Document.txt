@@ -1,1 +1,26 @@
 add you code file to this folder
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+int main() {
+    int arr[] = {5, 2, 9, 1, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int k;
+    cout << "Enter the value of K: ";
+    cin >> k;
+
+    vector<int> v(arr, arr + n);
+
+    sort(v.begin(), v.end());
+    int kth_smallest = v[k - 1];
+
+    sort(v.rbegin(), v.rend());
+    int kth_largest = v[k - 1];
+
+    cout << "Kth Smallest: " << kth_smallest <<endl;
+    cout << "Kth Largest: " << kth_largest <<endl;
+
+    return 0;
+}
