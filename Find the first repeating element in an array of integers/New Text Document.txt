@@ -1,1 +1,33 @@
-add you code file to this folder
+#include <iostream>
+#include <unordered_set>
+#include <vector>
+
+int findFirstRepeatingElement(const std::vector<int>& arr) {
+    std::unordered_set<int> seen;
+
+    for (int num : arr) {
+        if (seen.find(num) != seen.end()) {
+            // If the element is already in the set, it's the first repeating element.
+            return num;
+        } else {
+            // Otherwise, add it to the set.
+            seen.insert(num);
+        }
+    }
+
+    return -1;
+}
+
+int main() {
+    std::vector<int> arr = {3, 1, 4, 3, 2, 1};
+
+    int firstRepeating = findFirstRepeatingElement(arr);
+
+    if (firstRepeating != -1) {
+        std::cout << "The first repeating element is: " << firstRepeating << std::endl;
+    } else {
+        std::cout << "No repeating elements found." << std::endl;
+    }
+
+    return 0;
+}
