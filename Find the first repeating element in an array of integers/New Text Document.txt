@@ -1,1 +1,32 @@
 add you code file to this folder
+#include <iostream>
+#include <unordered_set>
+#include <vector>
+
+int firstRepeatingElement(std::vector<int>& nums) {
+    std::unordered_set<int> seen;
+
+    for (int num : nums) {
+        if (seen.count(num)) {
+            return num;
+        } else {
+            seen.insert(num);
+        }
+    }
+
+    return -1; // If no repeating element is found
+}
+
+int main() {
+    std::vector<int> nums = {4, 2, 8, 0, 3, 4, 1, 2, 7, 8};
+    
+    int result = firstRepeatingElement(nums);
+    
+    if (result != -1) {
+        std::cout << "The first repeating element is: " << result << std::endl;
+    } else {
+        std::cout << "No repeating element found." << std::endl;
+    }
+
+    return 0;
+}
