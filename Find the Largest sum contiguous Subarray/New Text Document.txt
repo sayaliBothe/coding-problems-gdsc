@@ -1,1 +1,24 @@
-add you code file to this folder
+#include <iostream>
+#include <vector>
+
+int findLargestContiguousSum(const std::vector<int>& arr) {
+    int currentMax = arr[0];
+    int globalMax = arr[0];
+
+    for (int i = 1; i < arr.size(); ++i) {
+        currentMax = std::max(arr[i], currentMax + arr[i]);
+        globalMax = std::max(globalMax, currentMax);
+    }
+
+    return globalMax;
+}
+
+int main() {
+    std::vector<int> arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    
+    int largestSum = findLargestContiguousSum(arr);
+
+    std::cout << "The largest sum of a contiguous subarray is: " << largestSum << std::endl;
+
+    return 0;
+}
